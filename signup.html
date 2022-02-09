@@ -9,6 +9,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
         
         <link rel="stylesheet" href="../css/bootstrap.min.css">
+         
  <!--styling signup page-->
         <style>
             .signup{
@@ -16,17 +17,20 @@
             border-radius: 20px;
             border-color: solid 2px black;
             background-color:white;
-            height:30em;
+            height:40em;
             width:50%;
             margin-top:5%;
-            margin-right:10%;
-            margin-bottom:10%;
+            margin-right:5%;
+            margin-bottom:5%;
             padding-left: 1.5%;
+}
+.chk{
+    text-align: left;
 }
 
 
 .signuphead{
-    text-align: left;
+    text-align: center;
     font-optical-sizing: 20px;
 
 }
@@ -49,40 +53,83 @@
 
 .signup input{
     align-items: left;
-    width:100%;
-    
-}
-.strength-meter{
-    position:relative;
-    height:1rem;
     width:90%;
-    border: solid green 2px;
-    border-radius: 10px;
-    margin-top: 3%;
     
 }
-.strength-meter::before{
-   
-    content:'';
-    position:absolute;
-    left:0;
-    height:100%;
-    width:calc(1% *var(--strength,0));
-    background-color: rgb(26, 226, 26);
-    border-radius: 3%;
-    transition: width 200ms;
+
+.pw-meter .form-element {
+  position:relative;
 }
+.pw-meter label {
+  display:block;
+  margin-bottom:8px;
+  color:#111;
+}
+.pw-meter input {
+  padding:8px 30px 8px 10px;
+  width:100%;
+  font-size:16px;
+  border:1px solid #bbb;
+  outline:none;
+}
+ .pw-display-toggle-btn {
+  position:absolute;
+  right:10px;
+  top:35px;
+  width:20px;
+  height:20px;
+  text-align:center;
+  line-height:20px;
+  cursor:pointer;
+}
+ .pw-display-toggle-btn i.fa-eye-slash {
+  display:none;
+}
+ .pw-display-toggle-btn.active i.fa-eye-slash {
+  display:block;
+}
+ .pw-display-toggle-btn.active i.fa-eye {
+  display:none;
+}
+ .pw-strength {
+  position:relative;
+  width:100%;
+  height:20px;
+  margin-top:10px;
+  text-align:center;
+  background:#f2f2f2;
+  display:none;
+}
+ .pw-strength span:nth-child(1) {
+  position:relative;
+  font-size:13px;
+  color:#111;
+  z-index:2;
+  font-weight:600;
+}
+.pw-strength span:nth-child(2) {
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:0%;
+  height:100%;
+  border-radius:5px;
+  z-index:1;
+  transition:all 300ms ease-in-out;
+}
+
 
         </style>
         <!--styling signup page-->
     </head>
+    <script src="signup.js"></script>
     <body>
         
         
         <body class="bg" background="./images/image2_1024x768_2.jpg">
 
             <!--FORM STARTS HERE-->
-            <form action="login.html" class="signup" onsubmit="return validate()">
+            <form action="index.html" class="signup" onsubmit= "return validate()">
                 
                 <h2 class= "signuphead"> User Login</h2>
                 <div>
@@ -100,11 +147,20 @@
                     <input type="number" placeholder="2148796321"id ="mobile">
                     <br>
                     <div  id="reason3" style="color: red;font-weight:bold;"></div>
-                    <label for="password">Password:</label>
-                    <br>
-                    <input type="password" placeholder="enter your password" id="pwd" >
-                    <br>
-                    <div class="strength-meter"></div>
+                    <label for="password">Password</label><br>
+
+                          <input type="password" id="password">
+                          <div class="pw-display-toggle-btn">
+                            <i class="fa fa-eye"></i>
+                            <i class="fa fa-eye-slash"></i>
+                          </div>
+                          <div class="pw-strength">
+                            <span></span>
+                            <span></span>
+                          </div>
+                        </div>
+                      </div>
+                   
                     <br>
                     <div  id="reason4" style="color: red;font-weight:bold;"></div>
                     <label>Confirm Password:</label>
@@ -112,12 +168,12 @@
                     <input type="password" placeholder="enter your password" id= "cnfpwd">
                     <br>
                     <div  id="reason5" style="color: red;font-weight:bold;"></div>
-                    <span>
+                    <span class="chk">
                     <input type="checkbox">I agree to terms and conditions.
                     </span>
                 </div>
                     <br>
-                    <button id="signup" id="submit">Signup</button>
+                    <input type="submit" id="submit" value="Signup">
                     <br>
                     <h6>All ready have an account?<a href="login.html">sign-in</a></h6>
                     <hr color="black">

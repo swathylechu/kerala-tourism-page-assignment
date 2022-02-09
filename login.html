@@ -21,17 +21,17 @@
 
        
         <!--FORM STARTS HERE-->
-        <form action="#" class="login">
+        <form action="./index.html" class="login" onsubmit="return validate()">
             <h2 class= "head"> User Login</h2>
             <div>
-                <label>Username:</label><br>
-                <input type="text" placeholder="Enter your email"><br>
+                <label >Username:</label><br>
+                <input type="text"id="user" placeholder="Enter your email"><br>
                 <label>Password:</label><br>
-                <input type="password" placeholder="Enter your password"><br>
+                <input type="password"id="password" placeholder="Enter your password"><br>
             </div>
             <div >
                 <br>
-                <button id="login-button">Login</button>
+                <button id="submit">Login</button>
             </div>
              <div>
                  <h6>need an account?</h6>
@@ -40,6 +40,6 @@
  
         </form>
        <!--FORM ENDS HERE-->
-        <script src="" async defer></script>
+        <script src="login.js" async defer></script>
     </body>
 </html>
